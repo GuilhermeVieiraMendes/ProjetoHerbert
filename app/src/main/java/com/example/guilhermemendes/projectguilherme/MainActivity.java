@@ -1,5 +1,6 @@
 package com.example.guilhermemendes.projectguilherme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -43,10 +44,18 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.sem_parametro) {
+            Intent intent = new Intent (this, Main2Activity.class);
+            startActivity(intent);
+
         }
 
+        if (id == R.id.com_parametro) {
+            Intent intent = new Intent(this, Main2Activity.class);
+            intent.putExtra("Primeiro" , "Passagem de parametro realizada com sucesso!!!!!");
+            startActivityForResult(intent, 1);
+
+        }
         return super.onOptionsItemSelected(item);
     }
 }
